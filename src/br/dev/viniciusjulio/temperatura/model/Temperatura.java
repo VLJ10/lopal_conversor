@@ -2,11 +2,12 @@ package br.dev.viniciusjulio.temperatura.model;
 
 public class Temperatura {
 	
-	
+	//criando a variavel celsius
 	private double celsius;
-	private double kelvin;
 	
 	
+	
+	//criando os metodos get e set
 	public double getCelsius() {
 		return celsius;
 	}
@@ -15,6 +16,9 @@ public class Temperatura {
 		this.celsius = celsius;
 	}
 	
+	
+	
+	//criando as operacoes de conversor
 	public double converterParaKelvin() {
 		double kelvin = 273.15 + celsius;
 		return kelvin;

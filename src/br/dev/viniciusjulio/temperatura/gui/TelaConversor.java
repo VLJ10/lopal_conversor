@@ -1,5 +1,6 @@
 package br.dev.viniciusjulio.temperatura.gui;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,7 @@ public class TelaConversor {
 	private JLabel labelResultado;
 	private JLabel labelMensagemErro;
 	private Font labels = new Font("BankGothic Lt BT", Font.PLAIN, 20);
+	private Color labelsColor = new Color(230, 0, 0);
 
 	public void criarTelaConversor() {
 
@@ -67,6 +69,8 @@ public class TelaConversor {
 		labelMensagemErro.setText(null);
 		labelMensagemErro.setBounds(75, 260, 450, 30);
 		labelMensagemErro.setFont(labels);
+		labelMensagemErro.setForeground(labelsColor);
+		
 
 		tela.getContentPane().add(labelCelsius);
 		tela.getContentPane().add(textCelsius);
@@ -80,49 +84,43 @@ public class TelaConversor {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				Temperatura temperatura = new Temperatura();
 
-				
 				try {
 					double celsius = Double.parseDouble(textCelsius.getText());
 					temperatura.setCelsius(celsius);
 					double kelvin = temperatura.converterParaKelvin();
 					labelResultado.setText(kelvin + " Kelvin");
-				
+
 				} catch (Exception erro) {
 					labelResultado.setText("");
 					labelMensagemErro.setText("valor invalido! Digite Somente numeros.");
 				}
-				
-				
-		}});
-		
+
+			}
+		});
+
 		buttonFahreinheit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				Temperatura temperatura = new Temperatura();
 
-				
 				try {
 					double celsius = Double.parseDouble(textCelsius.getText());
 					temperatura.setCelsius(celsius);
 					double fahreinheit = temperatura.converterParaFahreinheit();
 					labelResultado.setText(fahreinheit + " Fahreinheit");
-				
+
 				} catch (Exception erro) {
 					labelResultado.setText("");
 					labelMensagemErro.setText("valor invalido! Digite Somente numeros.");
 				}
-				
-				
-		}});
-		
-		
-		
-		
+
+			}
+		});
 
 		tela.setVisible(true);
 
