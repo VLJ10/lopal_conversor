@@ -4,6 +4,8 @@ public class Temperatura {
 	
 	
 	private double celsius;
+	private double kelvin;
+	
 	
 	public double getCelsius() {
 		return celsius;
